@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>A2 Yum</title>
+    <meta name="description" content="Routes to visit EVERY single restaurant in Ann Arbor.">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="Routes to visit EVERY single restaurant in Ann Arbor.">
+    <meta name="twitter:site" content="@hackerjae">
+    <meta name="twitter:title" content="A2 Yum">
+    <meta name="twitter:description" content="Hungry?">
+    <meta name="twitter:creator" content="@hackerjae">
+    <meta name="twitter:image" content="https://ijlee.me/yum/images/a2yum.png">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="A2 Yum" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ijlee.me/yum/" />
+    <meta property="og:image" content="https://ijlee.me/yum/images/a2yum.png" />
+    <meta property="og:description" content="Routes to visit EVERY single restaurant in Ann Arbor." />
+    <meta property="og:site_name" content="A2 Yum" />
+    <meta property="fb:admins" content="100001215744728" /> 
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+<div class="modal fade" id="wtf">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Wtf is this?</h4>
+      </div>
+      <div class="modal-body">
+      <h5>1. Wtf is this?</h5>
+      <p>Some girl posted on the <a href="https://www.facebook.com/groups/MichiganClassof2019/permalink/1706078882952824/">University of Michigan Class of 2019 Facebook page</a> that she intended to visit every restaurant in Ann Arbor. Since I have way too much free time on my hands I decided to write a software that can calculate the shortest route one would need to take to visit every restaurant in Ann Arbor.</p>
+      <h5>2. What's with all the lines? Why is it so slow?</h5>
+      <p>Good question! Finding the <i>SHORTEST</i> route given a set of N points is a very complicated math problem - nicknamed "Travelling Salesman" problem with NP-Complete complexity. It's a topic that spans the fields of mathematics, computer science and game theory. So instead, the approach that I took over here is simulating an evolutionary process. Start with a terrible (but correct) parent route, mutate that route, out of offspring routes select 4 best routes, repeat this iteration hundreds of times until we get to a acceptable solution.</p>
+      <h5>3. You're a nerd.</h5>
+      <p>♪~ ᕕ(ᐛ)ᕗ Haters gonna hate am I right</p>
+      <h5>4. Do you have any more stuff like this?</h5>
+      <p>Come check out my portfolio! <a href="https://ijlee.me">ijlee.me</a></p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+    <div id="map-canvas"></div>
+    <div id="sidebar">
+      <h3>ANN<br>
+        ARBOR<br>
+        YUM<br>
+        PLANNER</h3>
+
+      <h5>Search for...</h5>
+      <form>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="cafes"> <label for="cafes"><span class="ui"></span>Cafes</label>
+        </div>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="restaurants"> <label for="restaurants"><span class="ui"></span>Restaurants</label>
+        </div>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="bars"> <label for="bars"><span class="ui"></span>Bars</label>
+        </div>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="takeouts"> <label for="takeouts"><span class="ui"></span>Takeouts</label>
+        </div>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="deliveries"> <label for="deliveries"><span class="ui"></span>Deliveries</label>
+        </div>
+        <div class="checkbox-pad">
+        <input type="checkbox" id="bakeries"> <label for="bakeries"><span class="ui"></span>Bakeries</label>
+        </div>
+      </form>
+
+      <h5>Route statistics</h5>
+      <p>
+      Total of <span id="points">0</span> points. <br>
+      Current at <span id="gen">0</span>th generation. <br>
+      No change in fittest route for past <span id="unchanged">0</span> generations.<br>
+      Route mutated <span id="mutate">0</span> times.</p>
+
+      <h6><a id="wtf-btn">Wtf is this?</a></h6>
+
+      <h6>Made with <span class="glyphicon glyphicon-heart"></span> from Seoul. Go Blue!</h6>
+    </div>
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-61575797-2');ga('send','pageview');
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYeXy0xTunq07HL75SthbJdRlrq85cXQY&libraries=geometry,places&v=3.20" type="text/javascript"></script>
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/solver.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
