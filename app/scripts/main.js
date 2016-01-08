@@ -152,7 +152,6 @@ function initializeMap() {
 
   query();
 }
-google.maps.event.addDomListener(window, 'load', initializeMap);
 
 function draw(){
   var route = solver.best;
@@ -244,7 +243,7 @@ $(document).ready(function(){
       queryTypes.push('bakery');
     }
 
-    query();
+    // query();
   });
 
   $('#wtf-btn').click(function(){

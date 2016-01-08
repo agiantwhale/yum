@@ -187,7 +187,7 @@ Solver.prototype.mutation = function() {
       } else {
         this.population[i] = this.doMutate(this.population[i]);
       }
-      mutationCount++;
+      this.mutationCount++;
       i--;
     }
   }
