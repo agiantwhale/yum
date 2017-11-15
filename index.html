@@ -37,25 +37,6 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-<div class="modal fade" id="wtf">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Wtf is this?</h4>
-      </div>
-      <div class="modal-body">
-      <h5>1. Wtf is this?</h5>
-      <p>Some girl posted on the <a href="https://www.facebook.com/groups/MichiganClassof2019/permalink/1706078882952824/">University of Michigan Class of 2019 Facebook page</a> that she intended to visit every restaurant in Ann Arbor. Since I have way too much free time on my hands I decided to write a software that can calculate the shortest route one would need to take to visit every restaurant in Ann Arbor.</p>
-      <h5>2. What's with all the lines? Why is it so slow?</h5>
-      <p>Good question! Finding the <i>SHORTEST</i> route given a set of N points is a very complicated math problem - nicknamed "Travelling Salesman" problem with NP-Complete complexity. It's a topic that spans the fields of mathematics, computer science and game theory. So instead, the approach that I took over here is simulating an evolutionary process. Start with a terrible (but correct) parent route, mutate that route, out of offspring routes select 4 best routes, repeat this iteration hundreds of times until we get to a acceptable solution.</p>
-      <h5>3. Do you have any more stuff like this?</h5>
-      <p>Come check out my portfolio! <a href="https://jae.works">jae.works</a></p>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
     <div id="map-canvas"></div>
     <div id="sidebar">
       <h3>ANN<br>
@@ -91,8 +72,6 @@
       Current at <span id="gen">0</span>th generation. <br>
       No change in fittest route for past <span id="unchanged">0</span> generations.<br>
       Route mutated <span id="mutate">0</span> times.</p>
-
-      <h6><a id="wtf-btn">Wtf is this?</a></h6>
 
       <h6>Made with <span class="glyphicon glyphicon-heart"></span> from Seoul. Go Blue!</h6>
     </div>
